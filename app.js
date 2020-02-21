@@ -18,8 +18,6 @@ nextBtnFirstStep.addEventListener("click", () => {
     mainData.firstInput = document.getElementById("usr").value;
     document.getElementById("usr").value = mainData.firstInput;
     mainData.firstStepCompletd = true;
-    mainData.currentStep = "secondStep";
-
     secondStep();
   } else {
     msg("Name length cannot be less than 2", "alert-warning");
@@ -28,8 +26,6 @@ nextBtnFirstStep.addEventListener("click", () => {
 });
 const secondStep = () => {
   if (mainData.firstStepCompletd === true) {
-    mainData.currentStep === "secondStep";
-
     document.getElementById("first-step").style.display = "none";
     document.getElementById("second-step").style.display = "block";
     document
@@ -39,7 +35,6 @@ const secondStep = () => {
           mainData.secondInput = document.getElementById("psw").value;
           document.getElementById("usr").value = mainData.secondInput;
           mainData.secondStepCompletd = true;
-          mainData.currentStep = "thirdStep";
 
           thirdStep();
         } else {
@@ -74,7 +69,6 @@ const thirdStep = () => {
     document
       .getElementById("backBtn-thirdStep")
       .addEventListener("click", () => {
-        backButtonFunction("thirdStep");
         mainData.secondStepCompletd === false;
       });
   }
