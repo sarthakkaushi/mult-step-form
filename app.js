@@ -1,0 +1,90 @@
+let mainData = {
+  firstInput: "",
+  secondInput: "",
+  currentStep: "firstStep",
+  firstStepCompletd: false,
+  secondStepCompletd: false
+};
+(function() {
+  const secondStepContainer = document.getElementById("second-step");
+  const thirdStepContainer = document.getElementById("third-step");
+
+  secondStepContainer.style.display = "none";
+  thirdStepContainer.style.display = "none";
+})();
+
+const nextBtnFirstStep = document.getElementById("nextBtn-firstStep");
+nextBtnFirstStep.addEventListener("click", () => {
+  if (document.getElementById("usr").value.length > 2 === true) {
+    mainData.firstInput = document.getElementById("usr").value;
+    document.getElementById("usr").value = mainData.firstInput;
+    mainData.firstStepCompletd = true;
+    mainData.currentStep = "secondStep";
+
+    secondStep();
+  } else {
+    msg("Name length cannot be less than 2", "alert-warning");
+    // alert("Name Should Be atleast 3 Character");
+  }
+});
+function secondStep() {
+  if (mainData.firstStepCompletd === true) {
+    mainData.currentStep === "secondStep";
+
+    document.getElementById("first-step").style.display = "none";
+    document.getElementById("second-step").style.display = "block";
+    document
+      .getElementById("nextBtn-secondStep")
+      .addEventListener("click", () => {
+        if (document.getElementById("psw").value.length > 6) {
+          mainData.secondInput = document.getElementById("psw").value;
+          document.getElementById("usr").value = mainData.secondInput;
+          mainData.secondStepCompletd = true;
+          mainData.currentStep = "thirdStep";
+
+          thirdStep();
+        } else {
+          msg("Password length cannot be less than 6", "alert-warning");
+        }
+      });
+  }
+}
+const backButtonFunction = () => {
+  if (mainData.currentStep === "secondStep") {
+    document.getElementById("first-step").style.display = "block";
+    document.getElementById("third-step").style.display = "none";
+
+    document.getElementById("second-step").style.display = "none";
+  } else if (mainData.currentStep === "thirdStep") {
+    document.getElementById("first-step").style.display = "none";
+    document.getElementById("third-step").style.display = "none";
+    document.getElementById("second-step").style.display = "block";
+    mainData.currentStep = "secondStep";
+  }
+};
+
+document
+  .getElementById("backBtn-secondStep")
+  .addEventListener("click", backButtonFunction);
+
+const thirdStep = () => {
+  if (mainData.secondStepCompletd === true) {
+    document.getElementById("first-step").style.display = "none";
+    document.getElementById("second-step").style.display = "none";
+    document.getElementById("third-step").style.display = "block";
+    document
+      .getElementById("backBtn-thirdStep")
+      .addEventListener("click", () => {
+        backButtonFunction();
+      });
+  }
+};
+
+const msg = (text, type) => {
+  document.getElementById("msg").innerHTML = text;
+  document.getElementById("msg").classList.add(type);
+  setTimeout(() => {
+    document.getElementById("msg").innerHTML = "";
+    document.getElementById("msg").classList.remove(type);
+  }, 3000);
+};

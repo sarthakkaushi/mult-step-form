@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/fontawesome.min.css" integrity="sha256-mM6GZq066j2vkC2ojeFbLCcjVzpsrzyMVUnRnEQ5lGw=" crossorigin="anonymous" />  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+</head>
+    <title>Multi-Step Form</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Multi-Step Form </a>
+        </li>
+      </ul>
+    </nav>
+    <br /><br />
+    <div class="container">
+
+    <div id="msg" class="alert"></div>
+
+      <h5>Multi-Step Form</h5>
+      <div id="first-step">
+        <div class="form-group">
+          <label for="usr">Enter Name:</label>
+          <input type="text" class="form-control" required id="usr" />
+        </div>
+        <button class="btn btn-outline-primary" id="nextBtn-firstStep">
+          Next
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <div id="second-step">
+        <div class="form-group">
+          <label for="psw">Enter Password:</label>
+          <input type="password" class="form-control" id="psw" required />
+        </div>
+        <button class="btn btn-outline-primary" id="backBtn-secondStep">
+            <i class="fas fa-arrow-left"></i>
+          Back
+          
+        </button>
+        <button class="btn btn-outline-primary" id="nextBtn-secondStep">
+          Next
+          <i class="fas fa-arrow-right"></i>
+
+        </button>
+      </div>
+      <br />
+
+      <div id="third-step">
+        <button class="btn btn-outline-primary" id="backBtn-thirdStep">
+            <i class="fas fa-arrow-left"></i>
+          Back
+        </button>
+        <button class="btn btn-outline-primary" id="nextBtn-thirdStep">
+          Submit
+        </button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
