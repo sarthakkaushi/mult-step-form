@@ -1,7 +1,6 @@
 let mainData = {
   firstInput: "",
   secondInput: "",
-  currentStep: "firstStep",
   firstStepCompletd: false,
   secondStepCompletd: false
 };
@@ -27,7 +26,7 @@ nextBtnFirstStep.addEventListener("click", () => {
     // alert("Name Should Be atleast 3 Character");
   }
 });
-function secondStep() {
+const secondStep = () => {
   if (mainData.firstStepCompletd === true) {
     mainData.currentStep === "secondStep";
 
@@ -48,24 +47,24 @@ function secondStep() {
         }
       });
   }
-}
-const backButtonFunction = () => {
-  if (mainData.currentStep === "secondStep") {
-    document.getElementById("first-step").style.display = "block";
-    document.getElementById("third-step").style.display = "none";
+};
 
-    document.getElementById("second-step").style.display = "none";
-  } else if (mainData.currentStep === "thirdStep") {
+const backButtonFunction = from => {
+  if (from === "thirdStep") {
     document.getElementById("first-step").style.display = "none";
     document.getElementById("third-step").style.display = "none";
     document.getElementById("second-step").style.display = "block";
-    mainData.currentStep = "secondStep";
+  }
+  if (from === "secondStep") {
+    document.getElementById("first-step").style.display = "block";
+    document.getElementById("third-step").style.display = "none";
+    document.getElementById("second-step").style.display = "none";
   }
 };
 
 document
   .getElementById("backBtn-secondStep")
-  .addEventListener("click", backButtonFunction);
+  .addEventListener("click", () => backButtonFunction("secondStep"));
 
 const thirdStep = () => {
   if (mainData.secondStepCompletd === true) {
@@ -75,7 +74,8 @@ const thirdStep = () => {
     document
       .getElementById("backBtn-thirdStep")
       .addEventListener("click", () => {
-        backButtonFunction();
+        backButtonFunction("thirdStep");
+        mainData.secondStepCompletd === false;
       });
   }
 };
