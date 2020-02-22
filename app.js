@@ -69,11 +69,6 @@ const thirdStep = () => {
     document.getElementById("first-step").style.display = "none";
     document.getElementById("second-step").style.display = "none";
     document.getElementById("third-step").style.display = "block";
-    document
-      .getElementById("backBtn-thirdStep")
-      .addEventListener("click", () => {
-        mainData.secondStepCompletd === false;
-      });
   }
 };
 
