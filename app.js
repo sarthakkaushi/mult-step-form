@@ -61,6 +61,9 @@ document
   .getElementById("backBtn-secondStep")
   .addEventListener("click", () => backButtonFunction("secondStep"));
 
+document
+  .getElementById("backBtn-thirdStep")
+  .addEventListener("click", () => backButtonFunction("thirdStep"));
 const thirdStep = () => {
   if (mainData.secondStepCompletd === true) {
     document.getElementById("first-step").style.display = "none";
